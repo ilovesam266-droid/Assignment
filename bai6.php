@@ -15,32 +15,35 @@ class Student{
 }
 
 $students = [
-    new Student(1, 'Huy', 20, 8.5),
-    new Student(2, 'Lan', 19, 7.8),
-    new Student(3, 'Minh', 21, 9.2),
-    new Student(4, 'Hoa', 20, 6.5),
-    new Student(5, 'Tùng', 22, 8.0),
+    new Student(id: 1, name: 'Huy', age: 20, score: 8.5),
+    new Student(id: 2, name: 'Lan', age: 19, score: 7.8),
+    new Student(id: 3, name: 'Minh', age: 21, score: 9.2),
+    new Student(id: 4, name: 'Hoa', age: 20, score: 6.5),
+    new Student(id: 5, name: 'Tùng', age: 22, score: 8.0),
 ];
 
 $maxStudent = null;
 foreach ($students as $student){
-    if($maxStudent==null || $maxStudent->score < $student->score){
+    if(!$maxStudent || $maxStudent->score < $student->score){
         $maxStudent = $student;
     }
 }
 print_r($maxStudent);
 
-$countStudent = count($students);
-for($i = 0; $i < $countStudent-1; $i++){
-    for($j = 0; $j < $countStudent-$i-1; $j++){
-        if($students[$j]->age > $students[$j+1]->age){
-            $tempData = $students[$j];
-            $students[$j] = $students[$j+1];
-            $students[$j+1] = $tempData;
-        }
-    }
-}
+// $countStudent = count($students);
+// for($i = 0; $i < $countStudent-1; $i++){
+//     for($j = 0; $j < $countStudent-$i-1; $j++){
+//         if($students[$j]->age > $students[$j+1]->age){
+//             $tempData = $students[$j];
+//             $students[$j] = $students[$j+1];
+//             $students[$j+1] = $tempData;
+//         }
+//     }
+// }
 
-print_r($students);
+$sortedStudent = $students;
+usort($sortedStudent, fn(Student $student1, Student $student2) => $student1->age > $student2->age ? 1 : -1 );
+
+print_r($sortedStudent);
 
 
