@@ -14,7 +14,7 @@ for($i = 0; $i < 100; $i++){
 print_r($matchList);
 $notMatchList = [];
 for($i = 0; $i < 100; $i++){
-    if(!in_array($list1[$i], $matchList)&& !in_array($list1[$i], $notMatchList)){
+    if(!in_array($list1[$i], $matchList) && !in_array($list1[$i], $notMatchList)){
         array_push($notMatchList, $list1[$i]);
     }
 }

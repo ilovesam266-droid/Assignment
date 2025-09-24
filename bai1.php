@@ -2,7 +2,7 @@
 
 $randList = [];
 
-for($i = 0; $i <100; $i++){
+for($i = 0; $i < 100; $i++){
     $randList[]= rand(0,50);
 }
 
@@ -28,7 +28,7 @@ $answer = array_merge($topDown50List, $randList);
 
 $i = 0;
 $list10 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-while($i<=9){
+while($i <= 9){
     if(in_array($list10[$i], $randList)){
         $key = array_search($list10[$i],$randList);
         unset($list10[$i]);
